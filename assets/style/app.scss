@@ -1,0 +1,93 @@
+@import "global.scss";
+@import "typography.scss";
+@import "panel.scss";
+@import "role.scss";
+
+.canvas-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding-top: 25vh;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.avatar-container {
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+  width: 100vw;
+  height: 20vw;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+
+  .avatar {
+    width: 20vw;
+  }
+
+  .x {
+    font-size: 40px;
+    margin-left: 20px;
+  }
+
+  .num {
+    font-size: 68px;
+    margin-left: 20px;
+  }
+}
+
+.qr-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: 100vw 100vh;
+}
+
+.gameover-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .story {
+    width: 592px;
+    height: 814px;
+  }
+
+  .x {
+    width: 100px;
+    height: 100px;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.4);
+    margin-top: 7vh;
+  }
+
+  .win {
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    
+    .role {
+      margin: auto;
+      margin-top: 570px;
+      width: 720px;
+      height: 720px;
+    }
+  }
+}
