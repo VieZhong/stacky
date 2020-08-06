@@ -14,8 +14,9 @@ const init = {
     score: 0,
     restTimes: 3,
     offsetAxis: "x",
-    state: Config.STATE_ACTIVE,
+    state: Config.STATE_SCAN,
     directHits: 0,
+    showCombo: false,
     fragments: [],
     slices: [
         {
@@ -36,6 +37,8 @@ const init = {
     role: 1,
     openId: null,
 }
+
+let comboTimeout = null
 
 
 const [useStore, api] = create((set, get) => {
@@ -128,22 +131,22 @@ const [useStore, api] = create((set, get) => {
         addSlice(slice) {
             set({
                 slices: [
+                    ...get().slices,
                     {
                         ...slice,
                         id: uuid.v4(),
                     },
-                    ...get().slices,
                 ]
             })
         },
         addFragment(fragment) {
             set({
                 fragments: [
+                    ...get().fragments,
                     {
                         ...fragment,
                         id: uuid.v4(),
                     },
-                    ...get().fragments,
                 ]
             })
         },
@@ -227,9 +230,15 @@ const [useStore, api] = create((set, get) => {
             )
 
             if (directHit && !directHitAddition) {
-                set({ directHits: directHits + 1 })
+                set({ directHits: directHits + 1, showCombo: true })
+                comboTimeout = setTimeout(() => {
+                    if (comboTimeout) {
+                        clearTimeout(comboTimeout)
+                    }
+                    set({ showCombo: false })
+                }, 1200)
             } else {
-                set({ directHits: 0 })
+                set({ directHits: 0, showCombo: false })
             }
 
             const bottomCenter = bottom.getCenter(new Vector3())

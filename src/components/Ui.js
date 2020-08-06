@@ -6,13 +6,15 @@ import { useStore } from "../data/store"
 import { images } from "./Role"
 
 import qrBg from "../../assets/images/qr-bg.png"
-import storyImg from "../../assets/images/story.png"
+import ImgMixer from "../utils/ImgMixer"
 import winImg from "../../assets/images/win-bg.png"
 import longBg from "../../assets/images/long-bg.jpg"
 
 export default function Ui() {
     const state = useStore(state => state.state)
     const score = useStore(state => state.score)
+    const directHits = useStore(state => state.directHits)
+    const showCombo = useStore(state => state.showCombo)
     const role = useStore(state => state.role)
     const restTimes = useStore(state => state.restTimes)
     const reset = useStore(state => state.reset)
@@ -39,6 +41,11 @@ export default function Ui() {
                 <div className="panel panel--score">
                     {score}
                 </div>
+                <div className="combo" style={{ display: showCombo ? "block"  : "none"}}>
+                    <div className="combotx">
+                        combo <span className="combox">x</span> {directHits}
+                    </div>
+                </div>
             </Only>
 
             <Only if={state === Config.STATE_GAME_OVER || state === Config.STATE_BEFORE_GAME_OVER}>
@@ -51,7 +58,7 @@ export default function Ui() {
                         </div>
                     </Only>
                     <Only if={score !== Config.TOTAL_FLOOR}>
-                        <div className="story" style={{ backgroundImage: `url(${storyImg})`}}></div>
+                        <div className="story" style={{ backgroundImage: `url(${ImgMixer.getStoryImg()})`}}></div>
                         <div className="x" onClick={reset}>x</div>
                     </Only>
                 </div>

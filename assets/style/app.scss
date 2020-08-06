@@ -63,7 +63,7 @@
 
   .story {
     width: 592px;
-    height: 814px;
+    height: 1021px;
   }
 
   .x {
@@ -89,5 +89,32 @@
       width: 720px;
       height: 720px;
     }
+  }
+}
+
+.combo {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding-top: 35vh;
+  text-align: center;
+  font-size: 150px;
+  letter-spacing: 10px;
+  font-weight: bold;
+  color: #FFF;
+  z-index: 9999;
+  transition: display 0.5s, transform 0.5s;
+
+  .combotx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .combox {
+    font-size: 80px;
+    margin: 0 40px;
   }
 }

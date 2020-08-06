@@ -27,35 +27,87 @@ import img8 from "../../assets/images/p8.png"
 import img9 from "../../assets/images/p9.png"
 import img10 from "../../assets/images/p10.png"
 
+import s1 from "../../assets/images/story1.png"
+import s2 from "../../assets/images/story2.png"
+import s3 from "../../assets/images/story3.png"
+import s4 from "../../assets/images/story4.png"
+import s5 from "../../assets/images/story5.png"
+import s6 from "../../assets/images/story6.png"
+import s7 from "../../assets/images/story7.png"
+import s8 from "../../assets/images/story8.png"
+import s9 from "../../assets/images/story9.png"
+
 const images = [
-    img6,
-    img8,
-    img9,
-    img10,
-    img7,
-    img1,
-    img2,
-    img3,
-    img4,
-    img26,
-    img5,
-    img11,
-    img12,
-    img13,
-    img14,
-    img15,
-    img16,
-    img23,
-    img17,
-    img24,
-    img18,
-    img19,
-    img21,
-    img22,
-    img25,
-    img20,
-    img27
+    img6, // 1
+    img8, // 2
+    img9, // 3
+    img10, // 4
+    img7, // 5
+    img1, // 6
+    img2, // 7
+    img3, // 8
+    img4, // 9
+    img26, // 10
+    img5, // 11
+    img11, // 12
+    img12, // 13
+    img13, // 14
+    img14, // 15
+    img15, // 16
+    img16, // 17
+    img23, // 18
+    img17, // 19
+    img24, // 20
+    img18, // 21
+    img19, // 22
+    img21, // 23
+    img22, // 24
+    img25, // 25
+    img20, // 26
+    img27 // 27
 ]
+
+const type = [
+    2, //lancome 1
+    3, // apm 2
+    4, // converse 3
+    5, // hermes 4
+    6, // guerlain 5
+    7, // givinchy 6
+    1, // lv 7
+    3, // 8
+    6, // 9
+    5, // 10
+    3, // 11
+    8, // dior 12
+    9, // sisley 13
+    9, // 14
+    1, // 15
+    1, // 16
+    2, // 17
+    6, // 18
+    4, // 19
+    7, // 20
+    8, // 21
+    8, // 22
+    2, // 23
+    7, // 24
+    5, // 25
+    4, // 26
+    9 // 27
+]
+
+const story = {
+    1: s1,
+    2: s2,
+    3: s3,
+    4: s4,
+    5: s5,
+    6: s6,
+    7: s7,
+    8: s8,
+    9: s9,
+}
 
 export default class ImgMixer {
     static imgs = images.map(img => new ImageLoader().load(img))
@@ -71,5 +123,8 @@ export default class ImgMixer {
     }
     static reset() {
         this.i = 0
+    }
+    static getStoryImg() {
+        return story[type[this.i]]
     }
 }
